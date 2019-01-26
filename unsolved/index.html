@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="#" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 bg-dark text-white">
+          <img src="" atl="directory" />
+          <ul>
+            <li id="view">View</li>
+            <li id="add">Add</li>
+            <li id="verify">Verify</li>
+            <li id="update">Update</li>
+            <li id="delete">Delete</li>
+          </ul>
+        </nav>
+
+        <div class="col-md-10">
+          <div class="row">
+            <div id="name">
+              <form onsubmit="return false">
+                <label for='nameOnly'>First Name:</label>
+                <input type="text" name="name">
+                <input type="submit" value="Submit"/>
+              </form>
+            </div>
+
+            <div id="input">
+              <form onsubmit="return false">
+                <label for="fullForm">First Name:</label><br />
+                <input type="text" name="name" /><br />
+                Office Number:<br />
+                <input type="text" name="office" /><br />
+                Phone Number:<br />
+                <input type="text" name="phone" /><br /><br />
+                <input type="submit" value="Submit" />
+              </form>
+            </div>
+          </div>
+          <div class="row">
+            <div id="content">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 
+  <section id="addpage"></section>
+  <section id="viewpage"></section>
+  <section id="deletepage"></section>
+  <section id="updatepage"></section>
+  <section id="verifypage"></section> -->
+
+    <script src="dom.js"></script>
+    <script src="employeeList.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
