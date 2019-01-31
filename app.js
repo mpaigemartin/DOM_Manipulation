@@ -46,20 +46,48 @@ const getNames = function() {
 
 getNames();
 
-const addNew = function() {
-    // event.preventDefault();
-    const add = $("#fullForm").val().trim();
-    employeeList.push(add);
-    $("#fullForm").val("");
-    render();
+const addNew = function(e) {
+  e.preventDefault()
+const name = $('#nameInput').val()
+const roomNum = $('#officeNum').val()
+const phoneNum = $('#phoneNum').val()
+
+console.log(name, roomNum, phoneNum);
+
+
+    employeeList.push({
+      name: name,
+      officeNum: roomNum,
+      phoneNum: phoneNum
+    });
+
+    $('#nameInput').val('');
+    $('#officeNum').val('');
+    $('#phoneNum').val('');
+
+    getNames()
 }
 
-const deleteEntry = function() {
-    // event.preventDefault();
-    const remove = $("#nameOnly").val().trim();
-    employeeList.remove(remove);
-    $("#nameOnyl").val("");
-    render();
+const deleteEntry = function(event) {
+    event.preventDefault();
+    const remove = $("#nameOnly").val();
+    // let employees = "";
+    // for (let i = 0; i < employeeList.length; i++) {
+    //   employees += `
+    //       <p>${employeeList[i].name}</p> 
+    //       <p>${employeeList[i].officeNum}</p>
+    //       <p>${employeeList[i].phoneNum}</p>`
+    employeeList.splice(remove);
+    $("#nameOnly").val("");
+    getNames();
+}
+
+const verifyEntry = function (event){
+  event.preventDefault();
+  const verify = $("#nameOnly").val();
+  let contains = employeeList.Contains(verify);
+  console.log(verifyEntry)
+
 }
 
 // $("#submit").click(function() {
@@ -75,5 +103,6 @@ $("#delete").on("click", showDelete);
 $("#update").on("click", showUpdate);
 $("#verify").on("click", showVerify);
 
-// $("#Submit").on("click", addNew);
-// $("#Submitname").on("click", deleteEntry);
+$("#submit").on("click", addNew);
+$("#Submitname").on("click", deleteEntry);
+$("verify").on("click", verifyEntry);
