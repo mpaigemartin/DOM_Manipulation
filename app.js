@@ -57,11 +57,16 @@ const addNew = function() {
 const deleteEntry = function() {
     // event.preventDefault();
     const remove = $("#nameOnly").val().trim();
-    employeeList.hide(remove);
+    employeeList.remove(remove);
     $("#nameOnyl").val("");
     render();
 }
 
+// $("#submit").click(function() {
+//     employeeList.push($("#fullForm").val().trim());
+//     $("#fullForm").val("");
+//     render();
+// });
 
 
 $("#add").on("click", showAdd);
@@ -70,5 +75,5 @@ $("#delete").on("click", showDelete);
 $("#update").on("click", showUpdate);
 $("#verify").on("click", showVerify);
 
-$("#Submit").on("click", addNew);
-$("#Submitname").on("click", deleteEntry);
+// $("#Submit").on("click", addNew);
+// $("#Submitname").on("click", deleteEntry);
