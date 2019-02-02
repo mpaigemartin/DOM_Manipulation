@@ -1,8 +1,6 @@
 const $ = function(selector) {
   const nodeList = document.querySelectorAll(selector);
 
-  console.log(nodeList);
-
   const text = function(content) {
     for (let i = 0; i < nodeList.length; i++) {
       nodeList[i].innerText = content;

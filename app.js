@@ -2,30 +2,37 @@ const showView = function() {
   $('#name').hide();
   $('#input').hide();
   $('#content').show();
+  $('#verifyForm').hide();
+  $('#deleteForm').hide();
 };
 
 const showAdd = function() {
   $('#name').hide();
   $('#input').show();
   $('#content').show();
+  $('#verifyForm').hide();
+  $('#deleteForm').hide();
 };
 
 const showDelete = function() {
-  $('#name').show();
+  $('#deleteForm').show();
   $('#content').show();
   $('#input').hide();
 };
 
 const showVerify = function() {
-  $('#input').hide();
+  $('#deleteForm').hide();
   $('#content').hide();
-  $('#name').show();
+  $('#input').hide();
+  $('#verifyForm').show();
 };
 
 const showUpdate = function() {
-  $('#name').hide();
   $('#content').show();
   $('#input').show();
+  $('#name').hide();
+  $('#verifyForm').hide();
+  $('#deleteForm').hide();
 };
 
 const render = function(htmlStr) {
@@ -33,7 +40,8 @@ const render = function(htmlStr) {
 };
 
 const initLoad = (function() {
-  $('#name').hide();
+  $('#verifyForm').hide();
+  $('#deleteForm').hide();
   $('#input').hide();
 })();
 
@@ -87,18 +95,16 @@ const deleteEntry = function(event) {
   getNames();
 };
 
-const verifyEntry = function(event) {
-  event.preventDefault();
-  const name = $('#nameOnly').val();
-  console.log(name);
+const verifyEntry = function(e) {
+  e.preventDefault();
+  const name = document.querySelector('div#verifyForm input').value;
   let htmlStr = '<p>No</p>';
   for (let i = 0; i < employeeList.length; i++) {
     if (employeeList[i].name === name) {
       htmlStr = '<p>Yes</p>';
     }
   }
-  console.log(htmlStr);
-  render(htmlStr);
+  $('.contentDiv').html(htmlStr);
 };
 
 // $("#submit").click(function() {
@@ -114,5 +120,5 @@ $('#update').on('click', showUpdate);
 $('#verify').on('click', showVerify);
 
 $('#submit').on('click', addNew);
-$('#Submitname').on('click', deleteEntry);
-$('#verify').on('click', verifyEntry);
+// $('#submitName').on('click', deleteEntry);
+$('.submitName').on('click', verifyEntry);
