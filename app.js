@@ -1,44 +1,53 @@
 const showView = function() {
-  $("#name").hide();
-  $("#input").hide();
-  $("#content").show();
+  $('#name').hide();
+  $('#input').hide();
+  $('#content').show();
 };
 
 const showAdd = function() {
-  $("#name").hide();
-  $("#input").show();
-  $("#content").show();
+  $('#name').hide();
+  $('#input').show();
+  $('#content').show();
 };
 
 const showDelete = function() {
-  $("#name").show();
-  $("#content").show();
-  $("#input").hide();
+  $('#name').show();
+  $('#content').show();
+  $('#input').hide();
 };
 
 const showVerify = function() {
-  $("#input").hide();
-  $("#content").hide();
-  $("#name").show();
+  $('#input').hide();
+  $('#content').hide();
+  $('#name').show();
 };
 
 const showUpdate = function() {
-  $("#name").hide();
-  $("#content").show();
-  $("#input").show();
+  $('#name').hide();
+  $('#content').show();
+  $('#input').show();
 };
 
 const render = function(htmlStr) {
-  $("#content").html(htmlStr);
+  $('#content').html(htmlStr);
 };
 
+const initLoad = (function() {
+  $('#name').hide();
+  $('#input').hide();
+})();
+
 const getNames = function() {
-  let employees = "";
+  let employees = '';
   for (let i = 0; i < employeeList.length; i++) {
     employees += `
-        <p>${employeeList[i].name}</p> 
+    <div class="card m-2">
+      <div class="card-body">
+        <p>${employeeList[i].name}</p>
         <p>${employeeList[i].officeNum}</p>
-        <p>${employeeList[i].phoneNum}</p>`;
+        <p>${employeeList[i].phoneNum}</p>
+      </div>
+    </div>`;
   }
   render(employees);
 };
@@ -47,9 +56,9 @@ getNames();
 
 const addNew = function(e) {
   e.preventDefault();
-  const name = $("#nameInput").val();
-  const roomNum = $("#officeNum").val();
-  const phoneNum = $("#phoneNum").val();
+  const name = $('#nameInput').val();
+  const roomNum = $('#officeNum').val();
+  const phoneNum = $('#phoneNum').val();
 
   console.log(name, roomNum, phoneNum);
 
@@ -59,37 +68,37 @@ const addNew = function(e) {
     phoneNum: phoneNum
   });
 
-  $("#nameInput").val("");
-  $("#officeNum").val("");
-  $("#phoneNum").val("");
+  $('#nameInput').val('');
+  $('#officeNum').val('');
+  $('#phoneNum').val('');
 
   getNames();
 };
 
 const deleteEntry = function(event) {
   event.preventDefault();
-  const name = $("#nameOnly").val();
+  const name = $('#nameOnly').val();
   for (let i = 0; i < employeeList.length; i++) {
     if (employeeList[i].name === name) {
       employeeList.splice(i, 1);
     }
   }
-  $("#nameOnly").val("");
+  $('#nameOnly').val('');
   getNames();
 };
 
 const verifyEntry = function(event) {
   event.preventDefault();
-  const name = $("#nameOnly").val();
-  console.log(name)
-  let htmlStr = "<p>No</p>"
+  const name = $('#nameOnly').val();
+  console.log(name);
+  let htmlStr = '<p>No</p>';
   for (let i = 0; i < employeeList.length; i++) {
     if (employeeList[i].name === name) {
-      htmlStr = "<p>Yes</p>"
+      htmlStr = '<p>Yes</p>';
     }
-}
-console.log(htmlStr)
-  render (htmlStr);
+  }
+  console.log(htmlStr);
+  render(htmlStr);
 };
 
 // $("#submit").click(function() {
@@ -98,12 +107,12 @@ console.log(htmlStr)
 //     render();
 // });
 
-$("#add").on("click", showAdd);
-$("#view").on("click", showView);
-$("#delete").on("click", showDelete);
-$("#update").on("click", showUpdate);
-$("#verify").on("click", showVerify);
+$('#add').on('click', showAdd);
+$('#view').on('click', showView);
+$('#delete').on('click', showDelete);
+$('#update').on('click', showUpdate);
+$('#verify').on('click', showVerify);
 
-$("#submit").on("click", addNew);
-$("#Submitname").on("click", deleteEntry);
-$("#verify").on("click", verifyEntry);
+$('#submit').on('click', addNew);
+$('#Submitname').on('click', deleteEntry);
+$('#verify').on('click', verifyEntry);
