@@ -1,49 +1,57 @@
+const initLoad = (function() {
+  $('#verifyForm').hide();
+  $('#deleteForm').hide();
+  $('#addForm').hide();
+  $('#updateForm').hide();
+  $('#input').hide();
+})();
+
 const showView = function() {
   $('#name').hide();
   $('#input').hide();
   $('#content').show();
   $('#verifyForm').hide();
   $('#deleteForm').hide();
+  $('#addForm').hide();
+  $('#updateForm').hide();
 };
 
 const showAdd = function() {
-  $('#name').hide();
-  $('#input').show();
   $('#content').show();
+  $('#addForm').show();
+  $('#name').hide();
+  $('#updateForm').hide();
   $('#verifyForm').hide();
   $('#deleteForm').hide();
+};
+
+const showVerify = function() {
+  $('#verifyForm').show();
+  $('#content').hide();
+  $('#deleteForm').hide();
+  $('#updateForm').hide();
+  $('#addForm').hide();
+};
+
+const showUpdate = function() {
+  $('#content').show();
+  $('#updateForm').show();
+  $('#verifyForm').hide();
+  $('#deleteForm').hide();
+  $('#addForm').hide();
 };
 
 const showDelete = function() {
   $('#deleteForm').show();
   $('#content').show();
-  $('#input').hide();
-};
-
-const showVerify = function() {
-  $('#deleteForm').hide();
-  $('#content').hide();
-  $('#input').hide();
-  $('#verifyForm').show();
-};
-
-const showUpdate = function() {
-  $('#content').show();
-  $('#input').show();
-  $('#name').hide();
+  $('#updateForm').hide();
   $('#verifyForm').hide();
-  $('#deleteForm').hide();
+  $('#addForm').hide();
 };
 
 const render = function(htmlStr) {
   $('#content').html(htmlStr);
 };
-
-const initLoad = (function() {
-  $('#verifyForm').hide();
-  $('#deleteForm').hide();
-  $('#input').hide();
-})();
 
 const getNames = function() {
   let employees = '';

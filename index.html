@@ -77,8 +77,8 @@
               </form>
             </div>
 
-            <!-- Add and Update Form -->
-            <div class="col" id="input">
+            <!-- Add Form -->
+            <div class="col" id="addForm">
               <form class="form m-2">
                 <div class="form-group">
                   <label for="fullForm">First Name:</label>
@@ -109,7 +109,46 @@
                 </div>
                 <input
                   class="btn btn-success"
-                  id="submit"
+                  id="submitAdd"
+                  type="submit"
+                  value="Submit"
+                />
+              </form>
+            </div>
+
+            <!-- Update Form -->
+            <div class="col" id="updateForm">
+              <form class="form m-2">
+                <div class="form-group">
+                  <label for="fullForm">First Name:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="nameInput"
+                    placeholder="Name"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="fullForm">Office Number:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="officeNum"
+                    placeholder="###"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="fullForm">Phone Number:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="phoneNum"
+                    placeholder="###-###-####"
+                  />
+                </div>
+                <input
+                  class="btn btn-info"
+                  id="submitUpdate"
                   type="submit"
                   value="Submit"
                 />
