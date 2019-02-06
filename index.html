@@ -4,13 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="./reset.css" />
+    <link rel="stylesheet" type="text/css" href="./style.css" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
       integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" type="text/css" href="#" />
     <title>Document</title>
   </head>
 
@@ -30,45 +31,139 @@
 
         <div class="col-md-10">
           <div class="row">
-            <div id="name">
-              <form>
-                <label for="nameOnly">First Name:</label>
-                <input type="text" name="name" id="nameOnly"/>
-                <input type="submit" value="Submit" id="Submitname verify"/>
+            <!-- Verify Form -->
+            <div class="col" id="verifyForm">
+              <form class="form m-2">
+                <div class="form-group">
+                  <label for="nameOnly">First Name:</label>
+                  <input
+                    type="text"
+                    id="verifyForm"
+                    placeholder="Name"
+                    class="form-control"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  place-holder="Submit"
+                  id="submitName"
+                  class="btn btn-warning submitName"
+                >
+                  Verify
+                </button>
               </form>
             </div>
 
-            <div id="input">
-              <form class="form">
+            <!-- Delete Form -->
+            <div class="col" id="deleteForm">
+              <form class="form m-2">
+                <div class="form-group">
+                  <label for="nameOnly">First Name:</label>
+                  <input
+                    type="text"
+                    id="deleteForm"
+                    placeholder="Name"
+                    class="form-control"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  place-holder="Submit"
+                  id="submitName"
+                  class="btn btn-danger submitName"
+                >
+                  Delete
+                </button>
+              </form>
+            </div>
+
+            <!-- Add Form -->
+            <div class="col" id="addForm">
+              <form class="form m-2">
                 <div class="form-group">
                   <label for="fullForm">First Name:</label>
-                  <input type="text" class="form-control" id="nameInput">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="nameInput"
+                    placeholder="Name"
+                  />
                 </div>
                 <div class="form-group">
                   <label for="fullForm">Office Number:</label>
-                  <input type="text" class="form-control" id="officeNum" />
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="officeNum"
+                    placeholder="###"
+                  />
                 </div>
                 <div class="form-group">
                   <label for="fullForm">Phone Number:</label>
-                  <input type="text" class="form-control" id="phoneNum" />
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="phoneNum"
+                    placeholder="###-###-####"
+                  />
                 </div>
-                <input class="btn btn-warning" id="submit" type="submit" value="Submit" />
+                <input
+                  class="btn btn-success"
+                  id="submitAdd"
+                  type="submit"
+                  value="Submit"
+                />
+              </form>
+            </div>
+
+            <!-- Update Form -->
+            <div class="col" id="updateForm">
+              <form class="form m-2">
+                <div class="form-group">
+                  <label for="fullForm">First Name:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="nameInput"
+                    placeholder="Name"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="fullForm">Office Number:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="officeNum"
+                    placeholder="###"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="fullForm">Phone Number:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="phoneNum"
+                    placeholder="###-###-####"
+                  />
+                </div>
+                <input
+                  class="btn btn-info"
+                  id="submitUpdate"
+                  type="submit"
+                  value="Submit"
+                />
               </form>
             </div>
           </div>
+
           <div class="row">
-            <div id="content"></div>
+            <div class="col contentDiv">
+              <div id="content"></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- 
-  <section id="addpage"></section>
-  <section id="viewpage"></section>
-  <section id="deletepage"></section>
-  <section id="updatepage"></section>
-  <section id="verifypage"></section> -->
-
     <script src="dom.js"></script>
     <script src="employeeList.js"></script>
     <script src="app.js"></script>
