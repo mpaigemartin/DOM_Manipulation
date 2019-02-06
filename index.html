@@ -32,7 +32,7 @@
         <div class="col-md-10">
           <div class="row">
             <!-- Verify Form -->
-            <div class="col" id="verifyForm">
+            <div class="col-md-6" id="verifyForm">
               <form class="form m-2">
                 <div class="form-group">
                   <label for="nameOnly">First Name:</label>
@@ -55,7 +55,7 @@
             </div>
 
             <!-- Delete Form -->
-            <div class="col" id="deleteForm">
+            <div class="col-md-6" id="deleteForm">
               <form class="form m-2">
                 <div class="form-group">
                   <label for="nameOnly">First Name:</label>
@@ -69,7 +69,7 @@
                 <button
                   type="submit"
                   place-holder="Submit"
-                  id="submitName"
+                  id="deleteName"
                   class="btn btn-danger submitName"
                 >
                   Delete
@@ -78,7 +78,7 @@
             </div>
 
             <!-- Add Form -->
-            <div class="col" id="addForm">
+            <div class="col-md-6" id="addForm">
               <form class="form m-2">
                 <div class="form-group">
                   <label for="fullForm">First Name:</label>
@@ -117,14 +117,22 @@
             </div>
 
             <!-- Update Form -->
-            <div class="col" id="updateForm">
+            <div class="col-md-6" id="updateForm">
               <form class="form m-2">
-                <div class="form-group">
-                  <label for="fullForm">First Name:</label>
+                  <div class="form-group">
+                  <label for="fullForm">Old Name:</label>
                   <input
                     type="text"
                     class="form-control"
-                    id="nameInput"
+                    id="oldname"
+                    placeholder="Name"
+                    />
+                <div class="form-group">
+                  <label for="fullForm">New Name:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="newname"
                     placeholder="Name"
                   />
                 </div>
@@ -133,7 +141,7 @@
                   <input
                     type="text"
                     class="form-control"
-                    id="officeNum"
+                    id="office"
                     placeholder="###"
                   />
                 </div>
@@ -142,7 +150,7 @@
                   <input
                     type="text"
                     class="form-control"
-                    id="phoneNum"
+                    id="phone"
                     placeholder="###-###-####"
                   />
                 </div>
@@ -157,8 +165,9 @@
           </div>
 
           <div class="row">
-            <div class="col contentDiv">
+            <div class="col">
               <div id="content"></div>
+              <div class="contentDiv"></div>
             </div>
           </div>
         </div>

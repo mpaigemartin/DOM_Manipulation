@@ -42,6 +42,7 @@ const showUpdate = function() {
 };
 
 const showDelete = function() {
+  $('.contentDiv').hide()
   $('#deleteForm').show();
   $('#content').show();
   $('#updateForm').hide();
@@ -52,6 +53,8 @@ const showDelete = function() {
 const render = function(htmlStr) {
   $('#content').html(htmlStr);
 };
+
+let employeesIndex = -1;
 
 const getNames = function() {
   let employees = '';
@@ -93,13 +96,14 @@ const addNew = function(e) {
 
 const deleteEntry = function(event) {
   event.preventDefault();
-  const name = $('#nameOnly').val();
+  const name = document.querySelector('div#deleteForm input').value;
+  console.log(name)
   for (let i = 0; i < employeeList.length; i++) {
     if (employeeList[i].name === name) {
       employeeList.splice(i, 1);
     }
   }
-  $('#nameOnly').val('');
+  $('#deleteForm').val('');
   getNames();
 };
 
@@ -115,6 +119,39 @@ const verifyEntry = function(e) {
   $('.contentDiv').html(htmlStr);
 };
 
+const updateName = function(e) {
+  e.preventDefault()
+  const oldname = document.getElementById("oldname").value
+  const newname = document.getElementById("newname").value
+  const officeNum = document.getElementById("office").value
+  const phoneNum = document.getElementById("phone").value
+
+  for (let i = 0; i < employeeList.length; i++) {
+    const element = employeeList[i].name;
+    if (oldname === element) {
+      employeeIndex = i;
+    } 
+  }
+  if (employeeIndex >= 0) {
+    if (newname != '') {
+      employeeList[employeeIndex].name = newname
+    }
+    if (officeNum != '') {
+      employeeList[employeeIndex].officeNum = officeNum
+    }
+    if (phoneNum != '') {
+      employeeList[employeeIndex].phoneNum = phoneNum
+    }
+  }else {
+    console.log ("absent")
+  }
+  getNames();
+  employeeIndex = -1;
+}
+
+
+
+
 // $("#submit").click(function() {
 //     employeeList.push($("#fullForm").val().trim());
 //     $("#fullForm").val("");
@@ -127,6 +164,7 @@ $('#delete').on('click', showDelete);
 $('#update').on('click', showUpdate);
 $('#verify').on('click', showVerify);
 
-$('#submit').on('click', addNew);
-// $('#submitName').on('click', deleteEntry);
-$('.submitName').on('click', verifyEntry);
+$('#submitAdd').on('click', addNew);
+$('#deleteName').on('click', deleteEntry);
+$('#submitName').on('click', verifyEntry);
+$('#submitUpdate').on('click', updateName);
